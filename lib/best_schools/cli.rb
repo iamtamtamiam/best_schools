@@ -3,11 +3,11 @@
 class BestSchools::CLI 
   
   def call
-    puts "Welcome! According to Niche, the best districts in 2019 of the Houston Area are:"
+    puts "Welcome! According to Niche, the best districts in 2019 of the Houston Area are:" #additional spacing would be great.""
     get_district_rankings
-    #list_districts 
-    get_user_district_selection
-    #list_district_info
+    list_districts 
+    get_user_district_selection #let input be a number 
+    #show_district_info_for
   end 
     
   def get_district_rankings
@@ -15,11 +15,30 @@ class BestSchools::CLI
     @districts = ["Friendswood", "Katy", "Tomball", "Pearland"]
   end 
     
-  def get_user_district_selection
-    #list the districts
+  def list_districts
     @districts.each_with_index{|district, index|
       puts "#{index.to_i + 1}. #{district}"
     } 
+     puts "To view additional details of a district, please enter its ranking number (1-24)."
   end 
+  
+  def get_user_district_selection
+    district_selection = gets.strip.to_i
+    #scrape the distrct page and get attributes of the district(rank grade, total schools, number of students, percent proficient in reading, percent proficient in math, student teacher ratio)
+    if district_selection > 0 && district_selection <= @districts.length
+      #puts "selection worked"
+      show_district_info_for(district_selection)
+    else 
+      puts "You have entered an invalid response."
+      call
+      #list_districts #may have to move the input (gets.strip) up to list districts.
+    end 
+  end 
+  
+  def show_district_info_for(district_selection)
+    actual_selection = @districts[district_selection - 1]
+    puts "Details on #{actual_selection}"
+  end 
+  
   
 end 
