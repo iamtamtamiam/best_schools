@@ -1,0 +1,7 @@
+class BestSchools::Scraper
+  
+  
+  
+  
+  
+end 

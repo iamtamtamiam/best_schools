@@ -12,12 +12,16 @@ class BestSchools::CLI
     
   def get_district_rankings
     #scrape the districts off the site, put it in array?...remember to try to take out sponsored districts
-    @districts = ["Friendswood", "Katy", "Tomball", "Pearland"]
+    BestSchools::District.new("Friendswood")
+    BestSchools::District.new("Katy")
+    #@districts = ["Friendswood", "Katy", "Tomball", "Pearland"]
+    @districts = BestSchools::District.all 
+    #binding.pry 
   end 
     
   def list_districts
     @districts.each_with_index{|district, index|
-      puts "#{index.to_i + 1}. #{district}"
+      puts "#{index.to_i + 1}. #{district.name}"
     } 
      puts "To view additional details of a district, please enter its ranking number (1-24)."
   end 
@@ -30,7 +34,7 @@ class BestSchools::CLI
       show_district_info_for(district_selection)
     else 
       puts "You have entered an invalid response."
-      call
+      #call
       #list_districts #may have to move the input (gets.strip) up to list districts.
     end 
   end 
