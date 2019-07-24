@@ -1,7 +1,7 @@
 class BestSchools::District
   
-  attr_accessor :name, :url, :district_info
-  #:overall_niche_grade, :population, :number_of_schools, :percent_proficient_reading, :percent_proficient_math, :student_teacher_ratio
+  attr_accessor :name, :url, :district_info, :student_teacher_ratio
+  #:overall_niche_grade, :population, :number_of_schools, :percent_proficient_reading, :percent_proficient_math, 
   
   
   @@all = []

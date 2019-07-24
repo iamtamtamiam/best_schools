@@ -20,7 +20,7 @@ class BestSchools::Scraper
     url = district.url
     doc = Nokogiri::HTML(open(url))
     
-    # student_teacher_ratio = doc.css("section.block--two#teachers div.scalar__value span").first.text
+    district.student_teacher_ratio = doc.css("section.block--two#teachers div.scalar__value span").first.text
     #binding.pry
   end 
   
