@@ -7,7 +7,7 @@ class BestSchools::CLI
     get_district_rankings
     list_districts 
     get_user_district_selection #let input be a number 
-    show_district_info_for(district_selection)
+    show_district_info_for(@district_selection)
   end 
     
   def get_district_rankings
@@ -27,11 +27,11 @@ class BestSchools::CLI
   end 
   
   def get_user_district_selection
-    district_selection = gets.strip.to_i
+    @district_selection = gets.strip.to_i
     #scrape the distrct page and get attributes of the district(rank grade, total schools, number of students, percent proficient in reading, percent proficient in math, student teacher ratio)
-    if district_selection > 0 && district_selection <= @districts.length
+    if @district_selection > 0 && @district_selection <= @districts.length
       #puts "selection worked"
-      show_district_info_for(district_selection)
+      show_district_info_for(@district_selection)
     else 
       puts "You have entered an invalid response."
       #call
