@@ -7,7 +7,7 @@ class BestSchools::CLI
     get_district_rankings
     list_districts 
     get_user_district_selection #let input be a number 
-    show_district_info_for(@district_selection)
+    #show_district_info_for(@district_selection)
   end 
     
   def get_district_rankings
