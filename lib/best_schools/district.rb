@@ -12,6 +12,7 @@ class BestSchools::District
   end 
   
   def self.all
+    BestSchools::Scraper.scrape_districts
     @@all
   end
   

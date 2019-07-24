@@ -4,6 +4,8 @@ require_relative "./best_schools/district"
 require_relative "./best_schools/scraper"
 
 require 'pry'
+require 'nokogiri'
+require 'open-uri'
 
 
 module BestSchools
