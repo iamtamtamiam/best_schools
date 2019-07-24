@@ -7,7 +7,7 @@ class BestSchools::CLI
     get_district_rankings
     list_districts 
     get_user_district_selection #let input be a number 
-    #show_district_info_for
+    show_district_info_for(district_selection)
   end 
     
   def get_district_rankings
@@ -42,10 +42,10 @@ class BestSchools::CLI
   def show_district_info_for(district_selection)
     actual_selection = @districts[district_selection - 1]
     puts "Details on #{actual_selection}"
+    puts "#{actual_selection.district_details}" #might need another method to format details next
     
     #BestSchools::District.all...build find_by_name method in district class?
     #puts attributes like district.rank_grade
-    
   end 
   
   
