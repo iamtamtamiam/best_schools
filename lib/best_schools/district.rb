@@ -5,14 +5,14 @@ class BestSchools::District
   
   @@all = []
   
-  def initialize(name)
+  def initialize(name, url)
     @name = name
     
     @@all << self 
   end 
   
   def self.all
-    BestSchools::Scraper.scrape_districts
+    BestSchools::Scraper.scrape_districts if @@all.empty?
     @@all
   end
   

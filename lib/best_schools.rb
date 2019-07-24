@@ -8,7 +8,4 @@ require 'nokogiri'
 require 'open-uri'
 
 
-module BestSchools
-  class Error < StandardError; end
-  # Your code goes here...
-end
+

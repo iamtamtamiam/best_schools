@@ -12,8 +12,8 @@ class BestSchools::CLI
     
   def get_district_rankings
     #scrape the districts off the site, put it in array?...remember to try to take out sponsored districts
-    BestSchools::District.new("Friendswood")
-    BestSchools::District.new("Katy")
+    #BestSchools::District.new("Friendswood")
+    #BestSchools::District.new("Katy")
     #@districts = ["Friendswood", "Katy", "Tomball", "Pearland"]
     @districts = BestSchools::District.all 
     #binding.pry 
@@ -23,7 +23,7 @@ class BestSchools::CLI
     @districts.each_with_index{|district, index|
       puts "#{index.to_i + 1}. #{district.name}"
     } 
-     puts "To view additional details of a district, please enter its ranking number (1-24)."
+     puts "To view additional details of a district, please enter its ranking number (1-#{BestSchools::District.all.count})."
   end 
   
   def get_user_district_selection
