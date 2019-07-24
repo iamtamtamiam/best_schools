@@ -43,7 +43,10 @@ class BestSchools::CLI
     actual_selection = @districts[district_selection - 1]
     puts "Details on #{actual_selection.name}"
     actual_selection.district_details
-    puts "The Student-Teacher Ratio is #{actual_selection.student_teacher_ratio}" #might need another method to format details next
+    puts "The Student-Teacher Ratio is #{actual_selection.student_teacher_ratio}"
+    puts "The Percent Proficient in Reading is #{actual_selection.percent_proficient_reading}"#might need another method to format details next
+    puts "The Percent Proficient in Math is #{actual_selection.percent_proficient_math}"
+    puts "The Average Graduation Rate is #{actual_selection.graduation_rate}"
     
     #BestSchools::District.all...build find_by_name method in district class?
     #puts attributes like district.rank_grade

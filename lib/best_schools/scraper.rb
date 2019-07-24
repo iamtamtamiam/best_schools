@@ -21,6 +21,12 @@ class BestSchools::Scraper
     doc = Nokogiri::HTML(open(url))
     
     district.student_teacher_ratio = doc.css("section.block--two#teachers div.scalar__value span").first.text
+    
+    academics = doc.css("section.block--two-two#academics div.scalar__value span")
+    #academics.each do |subject|
+    district.percent_proficient_reading = academics[0].text
+    district.percent_proficient_math = academics[1].text
+    district.graduation_rate = academics[2].text
     #binding.pry
   end 
   
