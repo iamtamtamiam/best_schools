@@ -18,13 +18,9 @@ class BestSchools::Scraper
       #@schools = district.css("div.search-result-fact span.search-result-fact__value")[0].text
       #@students = district.css("div.search-result-fact span.search-result-fact__value")[1].text
       
-      #schools = district.css("div.search-result-fact span.search-result-fact__value")[0].text
-      #students = district.css("div.search-result-fact span.search-result-fact__value")[1].text
       
-      new_district.number_of_students = district.css("div.search-result-fact span.search-result-fact__value")[0].text 
-      new_district.number_of_schools = district.css("div.search-result-fact span.search-result-fact__value")[1].text
-      #how do i set students and schools equal to thier attributes
-      #binding.pry 
+      new_district.number_of_schools = district.css("div.search-result-fact span.search-result-fact__value")[0].text 
+      new_district.number_of_students = district.css("div.search-result-fact span.search-result-fact__value")[1].text
     end
     
     
@@ -42,8 +38,7 @@ class BestSchools::Scraper
     district.percent_proficient_math = academics[1].text
     district.graduation_rate = academics[2].text
     
-    #district.number_of_schools = @schools
-    #district.number_of_students = @students
+    
     ##binding.pry
   end 
   

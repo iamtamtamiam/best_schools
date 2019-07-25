@@ -32,10 +32,25 @@ class BestSchools::CLI
     if @district_selection > 0 && @district_selection <= @districts.length
       #puts "selection worked"
       show_district_info_for(@district_selection)
+      return_or_exit
     else 
       puts "You have entered an invalid response."
-      #call
+      call
       #list_districts #may have to move the input (gets.strip) up to list districts.
+    end 
+  end 
+  
+  def return_or_exit
+    puts "If you would like to view another districts information, please put 'r' or 'return' to return to the ranking list."
+    puts "If you would like to exit the program, please put 'e' or 'exit"
+    exit_option = gets.strip.downcase 
+    if exit_option == "r".downcase || exit_option == "return".downcase
+      call
+    elsif exit_option == "e".downcase || exit_option == "exit".downcase
+      puts "Good-bye!"
+    else 
+      puts "You have entered and invalid response."
+      return_or_exit
     end 
   end 
   
@@ -50,7 +65,7 @@ class BestSchools::CLI
     puts "The Total Number of Schools is #{actual_selection.number_of_schools}"
     puts "The Total Number of Students is #{actual_selection.number_of_students}"
     
-    #BestSchools::District.all...build find_by_name method in district class?
+   
     #puts attributes like district.rank_grade
   end 
   
