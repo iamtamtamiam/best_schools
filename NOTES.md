@@ -31,4 +31,25 @@ classes:
 
  #BestSchools::District.all...build find_by_name method in district class? no, bc you found it by its index number from user input
 
+colorize colors: [:black,
+ :light_black,
+ :red,
+ :light_red,
+ :green,
+ :light_green,
+ :yellow,
+ :light_yellow,
+ :blue,
+ :light_blue,
+ :magenta,
+ :light_magenta,
+ :cyan,
+ :light_cyan,
+ :white,
+ :light_white,
+ :default]
+ 
+ colorize modes:
+ [:default, :bold, :italic, :underline, :blink, :swap, :hide]
+ 
 

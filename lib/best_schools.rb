@@ -6,6 +6,7 @@ require_relative "./best_schools/scraper"
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
-
+require 'colorize'
+require 'colorized_string'
 
 
