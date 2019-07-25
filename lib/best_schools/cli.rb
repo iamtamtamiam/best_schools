@@ -3,7 +3,9 @@
 class BestSchools::CLI 
   
   def call
-    puts "Welcome! According to Niche, the best districts in 2019 of the Houston Area are:" #additional spacing would be great.""
+    puts "\nWelcome! According to Niche, the best districts in 2019 of the Houston Area are:
+    
+    " #additional spacing
     get_district_rankings
     list_districts 
     get_user_district_selection #let input be a number 
@@ -23,7 +25,7 @@ class BestSchools::CLI
     @districts.each_with_index{|district, index|
       puts "#{index.to_i + 1}. #{district.name}"
     } 
-     puts "To view additional details of a district, please enter its ranking number (1-#{BestSchools::District.all.count})."
+     puts "\vTo view additional details of a district, please enter its ranking number (1-#{BestSchools::District.all.count})."
   end 
   
   def get_user_district_selection
@@ -34,15 +36,15 @@ class BestSchools::CLI
       show_district_info_for(@district_selection)
       return_or_exit
     else 
-      puts "You have entered an invalid response."
+      puts "\vYou have entered an invalid response.\v"
       call
       #list_districts #may have to move the input (gets.strip) up to list districts.
     end 
   end 
   
   def return_or_exit
-    puts "If you would like to view another districts information, please put 'r' or 'return' to return to the ranking list."
-    puts "If you would like to exit the program, please put 'e' or 'exit"
+    puts "\vIf you would like to view another district's information, please enter 'r' or 'return' to return to the ranking list."
+    puts "If you would like to exit the program, please enter 'e' or 'exit."
     exit_option = gets.strip.downcase 
     if exit_option == "r".downcase || exit_option == "return".downcase
       call
@@ -56,17 +58,14 @@ class BestSchools::CLI
   
   def show_district_info_for(district_selection)
     actual_selection = @districts[district_selection - 1]
-    puts "Details on #{actual_selection.name}"
+    puts "\vDetails on #{actual_selection.name}:"
     actual_selection.district_details
-    puts "The Student-Teacher Ratio is #{actual_selection.student_teacher_ratio}"
-    puts "The Percent Proficient in Reading is #{actual_selection.percent_proficient_reading}"#might need another method to format details next
-    puts "The Percent Proficient in Math is #{actual_selection.percent_proficient_math}"
-    puts "The Average Graduation Rate is #{actual_selection.graduation_rate}"
-    puts "The Total Number of Schools is #{actual_selection.number_of_schools}"
-    puts "The Total Number of Students is #{actual_selection.number_of_students}"
-    
-   
-    #puts attributes like district.rank_grade
+    puts "\tThe Student-Teacher Ratio is #{actual_selection.student_teacher_ratio}"
+    puts "\tThe Percent Proficient in Reading is #{actual_selection.percent_proficient_reading}"
+    puts "\tThe Percent Proficient in Math is #{actual_selection.percent_proficient_math}"
+    puts "\tThe Average Graduation Rate is #{actual_selection.graduation_rate}"
+    puts "\tThe Total Number of Schools is #{actual_selection.number_of_schools}"
+    puts "\tThe Total Number of Students is #{actual_selection.number_of_students}"
   end 
   
   

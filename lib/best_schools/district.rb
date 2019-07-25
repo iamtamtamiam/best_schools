@@ -8,7 +8,7 @@ class BestSchools::District
   def initialize(name, url)
     @name = name
     @url = url
-    @district_info = []
+    @district_info = [] #dont think I need this anymore
     save
   end 
   
@@ -22,6 +22,6 @@ class BestSchools::District
   end 
   
   def district_details
-    BestSchools::Scraper.scrape_details(self) if @district_info.empty?
+    BestSchools::Scraper.scrape_details(self) if @district_info.empty? #do i need this still?(and line 11)
   end 
 end 
