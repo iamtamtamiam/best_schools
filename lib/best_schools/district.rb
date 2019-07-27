@@ -22,6 +22,8 @@ class BestSchools::District
   end 
   
   def district_details
-    BestSchools::Scraper.scrape_details(self) if @district_info.empty? #do i need this still?(and line 11)
+    
+    BestSchools::Scraper.scrape_details(self) unless graduation_rate
+    
   end 
 end 

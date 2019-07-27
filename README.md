@@ -1,8 +1,6 @@
 # BestSchools
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/best_schools`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+View the top 25 school districts in the Houston Area of 2019 according to Niche. 
 
 ## Installation
 

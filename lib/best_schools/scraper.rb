@@ -34,9 +34,9 @@ class BestSchools::Scraper
     
     academics = doc.css("section.block--two-two#academics div.scalar__value span")
     #academics.each do |subject|
-    district.percent_proficient_reading = academics[0].text
-    district.percent_proficient_math = academics[1].text
-    district.graduation_rate = academics[2].text
+    district.percent_proficient_reading = academics[0].text if district.percent_proficient_reading
+    district.percent_proficient_math = academics[1].text if district.percent_proficient_math
+    district.graduation_rate = academics[2].text if district.graduation_rate
     
     
     ##binding.pry
