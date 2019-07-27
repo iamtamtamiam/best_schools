@@ -23,7 +23,7 @@ class BestSchools::District
   
   def district_details
     
-    BestSchools::Scraper.scrape_details(self) unless graduation_rate
+    BestSchools::Scraper.scrape_details(self) unless percent_proficient_math
     
   end 
 end 
