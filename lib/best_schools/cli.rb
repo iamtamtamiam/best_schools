@@ -35,14 +35,15 @@ class BestSchools::CLI
       show_district_info_for(@district_selection)
       return_or_exit
     else 
-      puts "\vYou have entered an invalid response.\v".colorize(:red).bold
-      call
-      #list_districts #may have to move the input (gets.strip) up to list districts.
+      puts "\vYou have entered an invalid response. Please enter a number between 1 and #{@districts.length}.\v".colorize(:red).bold
+      #call
+      #list_districts #may have to move the input (gets.strip) up to list districts
+      get_user_district_selection
     end 
   end 
   
   def return_or_exit
-    puts "\vIf you would like to view another district's information, please enter 'r' or 'return' to return to the ranking list.".colorize(:green).italic
+    puts "\vIf you would like to view another district's info, please enter 'r' or 'return' to return to the ranking list.".colorize(:green).italic
     puts "If you would like to exit the program, please enter 'e' or 'exit.".colorize(:red).italic
     exit_option = gets.strip.downcase 
     if exit_option == "r".downcase || exit_option == "return".downcase
