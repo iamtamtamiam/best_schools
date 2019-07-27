@@ -24,18 +24,21 @@ class BestSchools::CLI
     @districts.each_with_index{|district, index|
       puts "#{index.to_i + 1}. #{district.name}"
     } 
-     puts "\vTo view additional details of a district, please enter its ranking number (1-#{BestSchools::District.all.count}).".colorize(:blue).italic
+     puts "\vTo view additional details of a district, please enter its ranking number (1-#{BestSchools::District.all.count})".colorize(:blue).italic
+     puts "To exit, please enter 'exit' or 'e'.".colorize(:red).italic
   end 
   
   def get_user_district_selection
-    @district_selection = gets.strip.to_i
+    @district_selection = gets.strip
     #scrape the distrct page and get attributes of the district(rank grade, total schools, number of students, percent proficient in reading, percent proficient in math, student teacher ratio)
-    if @district_selection > 0 && @district_selection <= @districts.length
+    if @district_selection.to_i > 0 && @district_selection.to_i <= @districts.length
       #puts "selection worked"
-      show_district_info_for(@district_selection)
+      show_district_info_for(@district_selection.to_i)
       return_or_exit
+    elsif @district_selection.downcase == "exit".downcase
+      puts "Good-bye!".colorize(:black).on_white.bold
     else 
-      puts "\vYou have entered an invalid response. Please enter a number between 1 and #{@districts.length}.\v".colorize(:red).bold
+      puts "\vYou have entered an invalid response. Please enter a number between 1 and #{@districts.length} or, to exit the program, enter 'e' or exit' t.\v".colorize(:red).bold
       #call
       #list_districts #may have to move the input (gets.strip) up to list districts
       get_user_district_selection

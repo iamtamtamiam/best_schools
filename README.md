@@ -4,19 +4,7 @@ View the top 25 school districts in the Houston Area of 2019 according to Niche.
 
 ## Installation
 
-Add this line to your application's Gemfile:
 
-```ruby
-gem 'best_schools'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install best_schools
 
 ## Usage
 

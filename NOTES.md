@@ -52,4 +52,18 @@ colorize colors: [:black,
  colorize modes:
  [:default, :bold, :italic, :underline, :blink, :swap, :hide]
  
+ Add this line to your application's Gemfile:
+
+```ruby
+gem 'best_schools'
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install best_schools
+ 
 
