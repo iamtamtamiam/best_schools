@@ -35,7 +35,7 @@ class BestSchools::CLI
       #puts "selection worked"
       show_district_info_for(@district_selection.to_i)
       return_or_exit
-    elsif @district_selection.downcase == "exit".downcase
+    elsif @district_selection.downcase == "exit".downcase || @district_selection.downcase == "e".downcase 
       puts "Good-bye!".colorize(:black).on_white.bold
     else 
       puts "\vYou have entered an invalid response. Please enter a number between 1 and #{@districts.length} or, to exit the program, enter 'e' or exit' t.\v".colorize(:red).bold

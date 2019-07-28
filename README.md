@@ -4,11 +4,21 @@ View the top 25 school districts in the Houston Area of 2019 according to Niche.
 
 ## Installation
 
+run 'git clone (with SSH Link)' in your terminal.
 
+cd best_schools
+
+run 'bundle install'
+
+run './bin/best_schools' to run program.
 
 ## Usage
 
-TODO: Write usage instructions here
+School districts are listed by rank number with number 1 being the best.
+
+To view a districts information, type in the rank number. 
+
+Enter 'e' or 'exit', to exit the program. 
 
 ## Development
 
