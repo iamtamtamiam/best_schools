@@ -21,9 +21,7 @@ class BestSchools::CLI
   end 
     
   def list_districts
-    @districts.each_with_index{|district, index|
-      puts "#{index.to_i + 1}. #{district.name}"
-    } 
+    @districts.each_with_index{|district, index| puts "#{index.to_i + 1}. #{district.name}"} 
      puts "\vTo view additional details of a district, please enter its ranking number (1-#{BestSchools::District.all.count})".colorize(:blue).italic
      puts "To exit, please enter 'exit' or 'e'.".colorize(:red).italic
   end 
@@ -36,6 +34,7 @@ class BestSchools::CLI
       show_district_info_for(@district_selection.to_i)
       return_or_exit
     elsif @district_selection.downcase == "exit".downcase || @district_selection.downcase == "e".downcase 
+      #elsif ["e", "exit"].include?(@district_selection.downcase)
       puts "Good-bye!".colorize(:black).on_white.bold
     else 
       puts "\vYou have entered an invalid response. Please enter a number between 1 and #{@districts.length} or, to exit the program, enter 'e' or exit' t.\v".colorize(:red).bold

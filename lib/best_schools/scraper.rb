@@ -33,11 +33,17 @@ class BestSchools::Scraper
     district.student_teacher_ratio = doc.css("section.block--two#teachers div.scalar__value span").first.text
     
     academics = doc.css("section.block--two-two#academics div.scalar__value span")
-    #academics.each do |subject|
-    district.percent_proficient_reading = academics[0].text if academics[0] != nil
-    district.percent_proficient_math = academics[1].text if academics[1] != nil
-    district.graduation_rate = academics[2].text if academics[2] != nil
     
+    #district.percent_proficient_reading = academics[0].text if academics[0] != nil
+    #district.percent_proficient_math = academics[1].text if academics[1] != nil
+    #district.graduation_rate = academics[2].text if academics[2] != nil
+    
+    #refactor? is bottom method any more clean?
+    
+    percentages = academics.collect{|subject| subject.text if subject.text != nil}
+    district.percent_proficient_reading = percentages[0]
+    district.percent_proficient_math = percentages[1]
+    district.graduation_rate = percentages[2]
     
     ##binding.pry
   end 
