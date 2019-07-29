@@ -29,7 +29,7 @@ class BestSchools::CLI
   def get_user_district_selection
     @district_selection = gets.strip
     #scrape the distrct page and get attributes of the district(rank grade, total schools, number of students, percent proficient in reading, percent proficient in math, student teacher ratio)
-    if @district_selection.to_i > 0 && @district_selection.to_i <= @districts.length
+    if @district_selection.to_i > 0 && @district_selection.to_i <= @districts.length #@district_selection.to_i.between?(1, @districts.length)
       #puts "selection worked"
       show_district_info_for(@district_selection.to_i)
       return_or_exit
