@@ -7,7 +7,6 @@ class BestSchools::District
   def initialize(name, url)
     @name = name
     @url = url
-    @district_info = [] #dont think I need this anymore
     save
   end 
   

@@ -1,25 +1,17 @@
-#My CLI controller
-
 class BestSchools::CLI 
   
   def call
     until exit_input 
-    puts "\nWelcome! According to Niche, the best districts in 2019 of the Houston Area are:\v".colorize(:black).on_light_white.bold #additional spacing
+    puts "\nWelcome! According to Niche, the current best districts of the Houston Area are:\v".colorize(:black).on_light_white.bold
     get_district_rankings
     list_districts 
     get_user_district_selection #let input be a number
     end
-    #show_district_info_for(@district_selection)
     puts "Good-bye!".colorize(:black).on_white.bold
   end 
     
   def get_district_rankings
-    #scrape the districts off the site, put it in array?...remember to try to take out sponsored districts
-    #BestSchools::District.new("Friendswood")
-    #BestSchools::District.new("Katy")
-    #@districts = ["Friendswood", "Katy", "Tomball", "Pearland"]
     @districts = BestSchools::District.all 
-    #binding.pry 
   end 
     
   def list_districts
@@ -30,21 +22,12 @@ class BestSchools::CLI
   
   def get_user_district_selection
     @input = gets.strip
-    #scrape the distrct page and get attributes of the district(rank grade, total schools, number of students, percent proficient in reading, percent proficient in math, student teacher ratio)
-    
     unless exit_input
       if valid_input
-      #puts "selection worked"
         show_district_info_for(@input.to_i)
         return_or_exit
-    #elsif @district_selection.downcase == "exit".downcase || @district_selection.downcase == "e".downcase 
-      #elsif ["e", "exit"].include?(@district_selection.downcase)
-      #puts "Good-bye!".colorize(:black).on_white.bold
-      #elsif exit_input
       else 
-        puts "\vYou have entered an invalid response. Please enter a number between 1 and #{@districts.length} or, to exit the program, enter 'e' or exit' t.\v".colorize(:red).bold
-      #call
-      #list_districts #may have to move the input (gets.strip) up to list districts
+        puts "\vYou have entered an invalid response. Please enter a number between 1 and #{@districts.length} or, to exit the program, enter 'e' or exit'.\v".colorize(:red).bold
         get_user_district_selection
       end
     end 
@@ -55,7 +38,7 @@ class BestSchools::CLI
   end 
   
   def exit_input
-    @input == "exit".downcase || @input == "e".downcase
+    @input.to_s.downcase == "exit".downcase || @input.to_s.downcase == "e".downcase
   end 
   
   def return_or_exit
@@ -65,8 +48,6 @@ class BestSchools::CLI
     unless exit_input
       if @input == "r".downcase || @input == "return".downcase
         list_districts
-    #elsif @input == "e".downcase || @input == "exit".downcase
-      #puts "Good-bye!".colorize(:black).on_white.bold
       else 
         puts "You have entered and invalid response.".colorize(:red).bold
         return_or_exit
@@ -85,7 +66,5 @@ class BestSchools::CLI
     puts "\tThe Total Number of Schools is #{actual_selection.number_of_schools}"
     puts "\tThe Total Number of Students is #{actual_selection.number_of_students}"
   end 
-  
-  
   
 end 

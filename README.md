@@ -1,10 +1,10 @@
 # BestSchools
 
-View the top 25 school districts in the Houston Area of 2019 according to Niche. 
+View the current top school districts in the Houston Area according to Niche. 
 
 ## Installation
 
-run 'git clone (with SSH Link)' in your terminal.
+run 'git clone git@github.com:iamtamtamiam/best_schools.git' in your terminal.
 
 cd best_schools
 
